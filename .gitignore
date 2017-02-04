@@ -9,3 +9,4 @@ buildNumber.properties
 .mvn/timing.properties
 /GUIA02_POO1/nbproject/private/
 /build/
+/dist/

@@ -5,17 +5,33 @@
  */
 package com.sv.udb.forms;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
 /**
  *
  * @author Walter
  */
 public class frmEjer3 extends javax.swing.JFrame {
-
+    private List<JButton> botones;
+    private int indice, cont;
+    
     /**
      * Creates new form frmEjer3
      */
     public frmEjer3() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        botones = new ArrayList<>();
+        indice = 0;
     }
 
     /**
@@ -27,21 +43,126 @@ public class frmEjer3 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        btnAgregar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        panel = new javax.swing.JPanel();
+        btnPrin = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        btnAgregar.setText("Agregar botones");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+
+        panel.setLayout(new java.awt.GridLayout(0, 9));
+        jScrollPane1.setViewportView(panel);
+
+        btnPrin.setText("Imprimir piramide");
+        btnPrin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrinActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
+                .addComponent(btnPrin, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgregar)
+                    .addComponent(btnPrin))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        cont = indice%2;
+        if (cont == 0) {
+            JButton boton = new JButton();
+            panel.add(boton);
+            botones.add(boton);
+            indice++;
+            panel.updateUI();
+        } else {
+            try {
+            JButton boton = new JButton();
+            BufferedImage img;
+            img = ImageIO.read(new File("C:\\Users\\Walter\\Documents\\NetBeansProjects\\GUIA02_POO1\\src\\com\\sv\\udb\\images\\square.png"));
+            ImageIcon face = new ImageIcon(img);
+            boton.setIcon(face);
+            panel.add(boton);
+            botones.add(boton);
+            indice++;
+            panel.updateUI();
+            } catch (IOException ex) {
+                Logger.getLogger(frmEjer3.class.getName()).log(Level.SEVERE, null, ex);
+            }            
+        }
+        
+        
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnPrinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrinActionPerformed
+        System.out.println("Introduce el numero de renglones de la piramide: ");
+        Scanner sc = new Scanner(System.in);
+        int numeroRenglones = sc.nextInt();
+        int renglon, columna, digitos;
+        for ( renglon = 1; renglon <= numeroRenglones ;  renglon++) {
+            System.out.println(" ");//Espacios
+            for (columna = 1; columna<= numeroRenglones-renglon; columna++ ) {
+                System.out.print(" ");
+            }
+            for (columna = 1, digitos = renglon; columna <= renglon ; columna++, digitos++ ) {
+                System.out.print((digitos%10));
+            }
+            for (columna = 1, digitos -= 2; columna <= renglon - 1 ; columna++, digitos--) {
+                System.out.print((digitos%10));
+            }
+        }
+        System.out.println();
+    }//GEN-LAST:event_btnPrinActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +200,10 @@ public class frmEjer3 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnPrin;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel panel;
     // End of variables declaration//GEN-END:variables
 }

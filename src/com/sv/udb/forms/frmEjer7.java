@@ -5,6 +5,10 @@
  */
 package com.sv.udb.forms;
 
+import com.sv.udb.clases.clsEje7;
+import com.sv.udb.clases.clsNotas;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Walter
@@ -16,6 +20,24 @@ public class frmEjer7 extends javax.swing.JFrame {
      */
     public frmEjer7() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.poblarData();
+    }
+    
+    private void poblarData(){
+        DefaultTableModel model = (DefaultTableModel)this.tblTodo.getModel();
+        while(model.getRowCount()>0){
+            model.removeRow(0);//limpia
+        }
+         
+        clsEje7 obje = new clsEje7();
+        for(clsNotas temp : obje.getData())
+        {
+            String text = String.format("<html><div style='display:table'><div><div><strong> %s</strong> "
+                + "</div></div><div style='color:gray'>%s</div></div></html>", 
+                    temp.getTitu(), temp.getDesc());
+            model.addRow(new Object[]{text, temp.getFech()});
+        }
     }
 
     /**
@@ -27,17 +49,37 @@ public class frmEjer7 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblTodo = new javax.swing.JTable();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        tblTodo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null}
+            },
+            new String [] {
+                "Título 1"
+            }
+        ));
+        tblTodo.setMinimumSize(new java.awt.Dimension(15, 30));
+        jScrollPane1.setViewportView(tblTodo);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(201, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
@@ -79,5 +121,7 @@ public class frmEjer7 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblTodo;
     // End of variables declaration//GEN-END:variables
 }
