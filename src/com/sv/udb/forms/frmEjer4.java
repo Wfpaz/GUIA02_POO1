@@ -5,6 +5,9 @@
  */
 package com.sv.udb.forms;
 
+import com.sv.udb.clases.clsEje4;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Walter
@@ -14,9 +17,63 @@ public class frmEjer4 extends javax.swing.JFrame {
     /**
      * Creates new form frmEjer4
      */
+    private clsEje4 objEjer;
+    private String cod;
+    
     public frmEjer4() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.cod = "";
+        this.objEjer = new clsEje4();
+    }
+    
+    private void radios(int radio){
+        switch(radio) {
+            case 1:
+                this.rdb1.setSelected(true);
+                break;
+            case 2:
+                this.rdb2.setSelected(true);
+                break;
+            case 3:
+                this.rdb3.setSelected(true);
+                break;
+            case 4:
+                this.rdb4.setSelected(true);
+                break;
+            default:
+                this.rdb1.setSelected(false);
+                this.rdb2.setSelected(false);
+                this.rdb3.setSelected(false);
+                this.rdb4.setSelected(false);
+                break;
+        }
+    }
+    private void Intento(String numero) {
+        if (cod.length() == 0){
+            radios(0);
+        }
+        this.cod = cod.concat(numero);
+        if(this.cod.length() == 4){
+            if (Integer.parseInt(this.cod) == this.objEjer.getPin()) {
+                JOptionPane.showMessageDialog(this, "Pin correcto!");
+                radios(0);
+                this.cod = "";
+                this.objEjer = new clsEje4();
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Pin incorrecto!");
+                this.cod = "";
+                this.objEjer.setNumI(this.objEjer.getNumI() + 1);
+                if(this.objEjer.getNumI() == 3) {
+                    JOptionPane.showMessageDialog(this, "Usted ha superado el numero de intentos");
+                    this.dispose();
+                }
+            }
+        }
+        radios(this.cod.length());
+        
     }
 
     /**
@@ -30,10 +87,6 @@ public class frmEjer4 extends javax.swing.JFrame {
 
         jToggleButton1 = new javax.swing.JToggleButton();
         jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
         lbl1 = new javax.swing.JLabel();
         lbl2 = new javax.swing.JLabel();
         lbl3 = new javax.swing.JLabel();
@@ -43,26 +96,17 @@ public class frmEjer4 extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        jLabel0 = new javax.swing.JLabel();
+        rdb1 = new javax.swing.JRadioButton();
+        rdb2 = new javax.swing.JRadioButton();
+        rdb3 = new javax.swing.JRadioButton();
+        rdb4 = new javax.swing.JRadioButton();
 
         jToggleButton1.setText("jToggleButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-
-        jTextField1.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
-
-        jTextField2.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-
-        jTextField3.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
-
-        jTextField4.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
 
         lbl1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sv/udb/images/1.png"))); // NOI18N
         lbl1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -76,7 +120,7 @@ public class frmEjer4 extends javax.swing.JFrame {
         lbl2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbl2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbl4MouseClicked(evt);
+                lbl2MouseClicked(evt);
             }
         });
 
@@ -84,7 +128,7 @@ public class frmEjer4 extends javax.swing.JFrame {
         lbl3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbl3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbl4MouseClicked(evt);
+                lbl3MouseClicked(evt);
             }
         });
 
@@ -100,7 +144,7 @@ public class frmEjer4 extends javax.swing.JFrame {
         lbl5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbl5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbl4MouseClicked(evt);
+                lbl5MouseClicked(evt);
             }
         });
 
@@ -108,7 +152,7 @@ public class frmEjer4 extends javax.swing.JFrame {
         jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbl4MouseClicked(evt);
+                jLabel6MouseClicked(evt);
             }
         });
 
@@ -116,7 +160,7 @@ public class frmEjer4 extends javax.swing.JFrame {
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbl4MouseClicked(evt);
+                jLabel7MouseClicked(evt);
             }
         });
 
@@ -124,7 +168,7 @@ public class frmEjer4 extends javax.swing.JFrame {
         jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbl4MouseClicked(evt);
+                jLabel8MouseClicked(evt);
             }
         });
 
@@ -132,15 +176,15 @@ public class frmEjer4 extends javax.swing.JFrame {
         jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbl4MouseClicked(evt);
+                jLabel9MouseClicked(evt);
             }
         });
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sv/udb/images/0.png"))); // NOI18N
-        jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sv/udb/images/0.png"))); // NOI18N
+        jLabel0.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel0.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbl4MouseClicked(evt);
+                jLabel0MouseClicked(evt);
             }
         });
 
@@ -149,53 +193,51 @@ public class frmEjer4 extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbl1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbl2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lbl3))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
+                        .addComponent(lbl4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbl5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel6))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(lbl4)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lbl5)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel6))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(lbl1)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(lbl2)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(lbl3)))
+                            .addComponent(jLabel0)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel8)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel9)))))))
-                .addGap(0, 17, Short.MAX_VALUE))
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel9)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(rdb1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rdb2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rdb3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rdb4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rdb1)
+                    .addComponent(rdb2)
+                    .addComponent(rdb3)
+                    .addComponent(rdb4))
+                .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl1)
                     .addComponent(lbl2)
@@ -211,7 +253,7 @@ public class frmEjer4 extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(jLabel9))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel10)
+                .addComponent(jLabel0)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -221,8 +263,8 @@ public class frmEjer4 extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,17 +277,45 @@ public class frmEjer4 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
     private void lbl1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl1MouseClicked
-        // TODO add your handling code here:
+        Intento("1");
     }//GEN-LAST:event_lbl1MouseClicked
 
+    private void lbl2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl2MouseClicked
+        Intento("2");
+    }//GEN-LAST:event_lbl2MouseClicked
+
+    private void lbl3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl3MouseClicked
+        Intento("3");
+    }//GEN-LAST:event_lbl3MouseClicked
+
     private void lbl4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl4MouseClicked
-        // TODO add your handling code here:
+        Intento("4");
     }//GEN-LAST:event_lbl4MouseClicked
+
+    private void lbl5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl5MouseClicked
+        Intento("5");
+    }//GEN-LAST:event_lbl5MouseClicked
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        Intento("6");
+    }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        Intento("7");
+    }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        Intento("8");
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        Intento("9");
+    }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void jLabel0MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel0MouseClicked
+        Intento("0");
+    }//GEN-LAST:event_jLabel0MouseClicked
 
     /**
      * @param args the command line arguments
@@ -283,21 +353,21 @@ public class frmEjer4 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel0;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lbl1;
     private javax.swing.JLabel lbl2;
     private javax.swing.JLabel lbl3;
     private javax.swing.JLabel lbl4;
     private javax.swing.JLabel lbl5;
+    private javax.swing.JRadioButton rdb1;
+    private javax.swing.JRadioButton rdb2;
+    private javax.swing.JRadioButton rdb3;
+    private javax.swing.JRadioButton rdb4;
     // End of variables declaration//GEN-END:variables
 }
