@@ -8,6 +8,7 @@ package com.sv.udb.clases;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,9 +17,12 @@ import java.util.List;
  * @author Walter
  */
 public class clsEje7 {
+    
+    List<clsNotas> resp = null;
+    
     public List<clsNotas> getData()
     {
-        List<clsNotas> resp = null;
+        
         try
         {
             String csvFile = "com/sv/udb/files/datos.csv";
@@ -36,7 +40,7 @@ public class clsEje7 {
                 }
             }
         }
-        catch(Exception ex)
+        catch(IOException ex)
         {
             ex.printStackTrace();
         }
