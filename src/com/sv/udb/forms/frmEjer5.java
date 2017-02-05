@@ -16,7 +16,13 @@ public class frmEjer5 extends javax.swing.JFrame {
      */
     public frmEjer5() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
+    
+    double val1 = 0;
+    double val2 = 0;
+    String Operacion;
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,21 +33,374 @@ public class frmEjer5 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        txtMostrar = new javax.swing.JTextField();
+        lbl1 = new javax.swing.JLabel();
+        lbl2 = new javax.swing.JLabel();
+        lbl3 = new javax.swing.JLabel();
+        lbl5 = new javax.swing.JLabel();
+        lbl4 = new javax.swing.JLabel();
+        lbl6 = new javax.swing.JLabel();
+        lblEntre = new javax.swing.JLabel();
+        lbl8 = new javax.swing.JLabel();
+        lbl7 = new javax.swing.JLabel();
+        lbl9 = new javax.swing.JLabel();
+        lblPor = new javax.swing.JLabel();
+        lbl0 = new javax.swing.JLabel();
+        lblIgual = new javax.swing.JLabel();
+        lblMenos = new javax.swing.JLabel();
+        lblMas = new javax.swing.JLabel();
+        lblPunto = new javax.swing.JLabel();
+        lblClear = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 255, 204));
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        txtMostrar.setEditable(false);
+        txtMostrar.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+
+        lbl1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sv/udb/images/11.png"))); // NOI18N
+        lbl1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lbl1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl1MouseClicked(evt);
+            }
+        });
+
+        lbl2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sv/udb/images/22.png"))); // NOI18N
+        lbl2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lbl2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl2MouseClicked(evt);
+            }
+        });
+
+        lbl3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sv/udb/images/33.png"))); // NOI18N
+        lbl3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lbl3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl3MouseClicked(evt);
+            }
+        });
+
+        lbl5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sv/udb/images/55.png"))); // NOI18N
+        lbl5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lbl5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl5MouseClicked(evt);
+            }
+        });
+
+        lbl4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sv/udb/images/44.png"))); // NOI18N
+        lbl4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lbl4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl4MouseClicked(evt);
+            }
+        });
+
+        lbl6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sv/udb/images/66.png"))); // NOI18N
+        lbl6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lbl6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl6MouseClicked(evt);
+            }
+        });
+
+        lblEntre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sv/udb/images/division.png"))); // NOI18N
+        lblEntre.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblEntre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEntreMouseClicked(evt);
+            }
+        });
+
+        lbl8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sv/udb/images/88.png"))); // NOI18N
+        lbl8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lbl8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl8MouseClicked(evt);
+            }
+        });
+
+        lbl7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sv/udb/images/77.png"))); // NOI18N
+        lbl7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lbl7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl7MouseClicked(evt);
+            }
+        });
+
+        lbl9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sv/udb/images/99.png"))); // NOI18N
+        lbl9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lbl9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl9MouseClicked(evt);
+            }
+        });
+
+        lblPor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sv/udb/images/multiplicar.png"))); // NOI18N
+        lblPor.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblPor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPorMouseClicked(evt);
+            }
+        });
+
+        lbl0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sv/udb/images/00.png"))); // NOI18N
+        lbl0.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lbl0.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl0MouseClicked(evt);
+            }
+        });
+
+        lblIgual.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sv/udb/images/igual.png"))); // NOI18N
+        lblIgual.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblIgual.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblIgualMouseClicked(evt);
+            }
+        });
+
+        lblMenos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sv/udb/images/menos.png"))); // NOI18N
+        lblMenos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblMenos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMenosMouseClicked(evt);
+            }
+        });
+
+        lblMas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sv/udb/images/mas.png"))); // NOI18N
+        lblMas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblMas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMasMouseClicked(evt);
+            }
+        });
+
+        lblPunto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sv/udb/images/punto.png"))); // NOI18N
+        lblPunto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblPunto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPuntoMouseClicked(evt);
+            }
+        });
+
+        lblClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sv/udb/images/c.png"))); // NOI18N
+        lblClear.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblClear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblClearMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblClear))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lbl1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblEntre))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lbl4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblPor))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblPunto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl0)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblIgual)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblMenos))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lbl7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblMas)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(lblClear)
+                    .addComponent(txtMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl1)
+                    .addComponent(lbl2)
+                    .addComponent(lbl3)
+                    .addComponent(lblEntre))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl4)
+                    .addComponent(lbl5)
+                    .addComponent(lbl6)
+                    .addComponent(lblPor))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl7)
+                    .addComponent(lbl8)
+                    .addComponent(lbl9)
+                    .addComponent(lblMas))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblIgual)
+                    .addComponent(lbl0)
+                    .addComponent(lblMenos)
+                    .addComponent(lblPunto))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lbl1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl1MouseClicked
+        this.txtMostrar.setText(this.txtMostrar.getText() + "1");
+    }//GEN-LAST:event_lbl1MouseClicked
+
+    private void lbl2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl2MouseClicked
+        this.txtMostrar.setText(this.txtMostrar.getText() + "2");
+    }//GEN-LAST:event_lbl2MouseClicked
+
+    private void lbl3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl3MouseClicked
+        this.txtMostrar.setText(this.txtMostrar.getText() + "3");
+    }//GEN-LAST:event_lbl3MouseClicked
+
+    private void lbl4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl4MouseClicked
+        this.txtMostrar.setText(this.txtMostrar.getText() + "4");
+    }//GEN-LAST:event_lbl4MouseClicked
+
+    private void lbl5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl5MouseClicked
+        this.txtMostrar.setText(this.txtMostrar.getText() + "5");
+    }//GEN-LAST:event_lbl5MouseClicked
+
+    private void lbl6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl6MouseClicked
+        this.txtMostrar.setText(this.txtMostrar.getText() + "6");
+    }//GEN-LAST:event_lbl6MouseClicked
+
+    private void lbl7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl7MouseClicked
+        this.txtMostrar.setText(this.txtMostrar.getText() + "7");
+    }//GEN-LAST:event_lbl7MouseClicked
+
+    private void lbl8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl8MouseClicked
+        this.txtMostrar.setText(this.txtMostrar.getText() + "8");
+    }//GEN-LAST:event_lbl8MouseClicked
+
+    private void lbl9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl9MouseClicked
+        this.txtMostrar.setText(this.txtMostrar.getText() + "9");
+    }//GEN-LAST:event_lbl9MouseClicked
+
+    private void lbl0MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl0MouseClicked
+        this.txtMostrar.setText(this.txtMostrar.getText() + "0");
+    }//GEN-LAST:event_lbl0MouseClicked
+
+    private void lblEntreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntreMouseClicked
+        val1 = Double.parseDouble(this.txtMostrar.getText());
+        this.txtMostrar.setText("");
+        Operacion = "/";
+    }//GEN-LAST:event_lblEntreMouseClicked
+
+    private void lblPorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPorMouseClicked
+        val1 = Double.parseDouble(this.txtMostrar.getText());
+        this.txtMostrar.setText("");
+        Operacion = "*";
+    }//GEN-LAST:event_lblPorMouseClicked
+
+    private void lblMasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMasMouseClicked
+        val1 = Double.parseDouble(this.txtMostrar.getText());
+        this.txtMostrar.setText("");
+        Operacion = "+";
+    }//GEN-LAST:event_lblMasMouseClicked
+
+    private void lblMenosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMenosMouseClicked
+        val1 = Double.parseDouble(this.txtMostrar.getText());
+        this.txtMostrar.setText("");
+        Operacion = "-";
+    }//GEN-LAST:event_lblMenosMouseClicked
+
+    private void lblIgualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIgualMouseClicked
+        val2 = Double.parseDouble(this.txtMostrar.getText());
+        if (null != Operacion) switch (Operacion) {
+            case "+":{
+                this.txtMostrar.setText("");
+                double resu = val1 + val2;
+                this.txtMostrar.setText(String.valueOf(resu));
+                    break;
+                }
+            case "-":{
+                this.txtMostrar.setText("");
+                double resu = val1 - val2;
+                this.txtMostrar.setText(String.valueOf(resu));
+                    break;
+                }
+            case "*":{
+                this.txtMostrar.setText("");
+                double resu = val1 * val2;
+                this.txtMostrar.setText(String.valueOf(resu));
+                    break;
+                }
+            case "/":{
+                this.txtMostrar.setText("");
+                double resu = val1 / val2;
+                this.txtMostrar.setText(String.valueOf(resu));
+                    break;
+                }
+            default:
+                break;
+        }
+    }//GEN-LAST:event_lblIgualMouseClicked
+
+    private void lblPuntoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPuntoMouseClicked
+        this.txtMostrar.setText(this.txtMostrar.getText() + ".");
+    }//GEN-LAST:event_lblPuntoMouseClicked
+
+    private void lblClearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClearMouseClicked
+        val1 = 0;
+        val2 = 0;
+        this.txtMostrar.setText("");
+    }//GEN-LAST:event_lblClearMouseClicked
 
     /**
      * @param args the command line arguments
@@ -79,5 +438,24 @@ public class frmEjer5 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbl0;
+    private javax.swing.JLabel lbl1;
+    private javax.swing.JLabel lbl2;
+    private javax.swing.JLabel lbl3;
+    private javax.swing.JLabel lbl4;
+    private javax.swing.JLabel lbl5;
+    private javax.swing.JLabel lbl6;
+    private javax.swing.JLabel lbl7;
+    private javax.swing.JLabel lbl8;
+    private javax.swing.JLabel lbl9;
+    private javax.swing.JLabel lblClear;
+    private javax.swing.JLabel lblEntre;
+    private javax.swing.JLabel lblIgual;
+    private javax.swing.JLabel lblMas;
+    private javax.swing.JLabel lblMenos;
+    private javax.swing.JLabel lblPor;
+    private javax.swing.JLabel lblPunto;
+    private javax.swing.JTextField txtMostrar;
     // End of variables declaration//GEN-END:variables
 }
